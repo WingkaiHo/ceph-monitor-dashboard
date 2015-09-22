@@ -6,6 +6,7 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
    The graphite-web only need to install into one machine of ceph cluster.
 
   1) Install graphite-web and mysql backend.
+    #yum install http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm
     #yum install graphite-web mariadb-server.x86_64  MySQL-python 
 
   2) Enable the mysql start when system start.
