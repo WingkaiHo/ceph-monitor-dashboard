@@ -44,53 +44,8 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
     #systemctl start  carbon-cache.service
 
   9) Fix the /etc/httpd/conf.d/graphite-web.conf to solve the bug AH01630: client denied by server configuration in appach.
-    
-  # Graphite Web Basic mod_wsgi vhost
-
-listen 8080
-<VirtualHost *:8080>
-    ServerName 192.168.0.1
-    DocumentRoot "/usr/share/graphite/webapp"
-    ErrorLog /var/log/httpd/graphite-web-error.log
-    CustomLog /var/log/httpd/graphite-web-access.log common
-
-    # Header set Access-Control-Allow-Origin "*"
-    # Header set Access-Control-Allow-Methods "GET, OPTIONS"
-    # Header set Access-Control-Allow-Headers "origin, authorization, accept"
-    # Header set Access-Control-Allow-Credentials true
-
-    WSGIScriptAlias / /usr/share/graphite/graphite-web.wsgi
-    WSGIImportScript /usr/share/graphite/graphite-web.wsgi
-    process-group=%{GLOBAL} application-group=%{GLOBAL}
-
-    <Location "/content/">
-        SetHandler None
-    </Location>
-
-    Alias /media/ "/usr/lib/python2.7/site-packages/django/contrib/admin/media/"
-    <Location "/media/">
-        Order deny,allow
-        Allow from all
-    </Location>
-   <Directory "/usr/share/graphite/">
-        Options All
-        AllowOverride All
-        Require all granted
-    </Directory>
-
-    <Directory "/etc/graphite-web/">
-        Options All
-        AllowOverride All
-  </Directory>
-
-   <Directory "/usr/share/graphite/webapp">
-        Order deny,allow
-        Allow from all
-    </Directory>
-</VirtualHost>
-
- you can copy the file to /etc/httpd/conf.d/graphite-web.conf
- #cp ./graphite-web/graphite-web.conf /etc/httpd/conf.d/
+     you can copy the file to overwrite /etc/httpd/conf.d/graphite-web.conf
+     #cp ./graphite-web/graphite-web.conf /etc/httpd/conf.d/
 
   10)restart httpd service
      #systemctl start httpd
