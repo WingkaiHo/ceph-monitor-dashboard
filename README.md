@@ -47,7 +47,7 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
     
   # Graphite Web Basic mod_wsgi vhost
 
-#listen 8080
+listen 8080
 <VirtualHost *:8080>
     ServerName 192.168.0.1
     DocumentRoot "/usr/share/graphite/webapp"
@@ -90,7 +90,7 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
 </VirtualHost>
 
  you can copy the file to /etc/httpd/conf.d/graphite-web.conf
- # copy ./graphite-web/graphite-web.conf /etc/httpd/conf.d/
+ #cp ./graphite-web/graphite-web.conf /etc/httpd/conf.d/
 
   10)restart httpd service
      #systemctl start httpd
@@ -106,6 +106,7 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
 
    [collectd]
    pattern = ^collectd\.
+
    retentions = 10s:1d,1m:7d,10m:1y
 
   13) Test if graphite_web deploy successful. Please use firfox or chrome:
