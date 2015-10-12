@@ -1,0 +1,419 @@
+{
+  "id": 2,
+  "title": "Host Network",
+  "originalTitle": "Host Network",
+  "tags": [
+    "host"
+  ],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "25px",
+      "panels": [
+        {
+          "editable": true,
+          "error": false,
+          "id": 4,
+          "limit": 10,
+          "links": [],
+          "mode": "search",
+          "query": "Host Load CPU Memory",
+          "span": 2,
+          "tag": "",
+          "title": "",
+          "transparent": true,
+          "type": "dashlist"
+        },
+        {
+          "editable": true,
+          "error": false,
+          "id": 5,
+          "limit": 10,
+          "links": [],
+          "mode": "search",
+          "query": "Host Disk",
+          "span": 2,
+          "tag": "",
+          "title": "",
+          "transparent": true,
+          "type": "dashlist"
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {
+            "Receiving": "#64B0C8",
+            "Sending": "#99440A"
+          },
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "leftYAxisLabel": "Bytes/s",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": true,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$hostname.$interface.if_octets.rx, 'Receiving')"
+            },
+            {
+              "target": "alias(collectd.$hostname.$interface.if_octets.tx, 'Sending')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "short"
+          ]
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {
+            "Receiving": "#6ED0E0"
+          },
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "leftYAxisLabel": "Packets/s",
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": true,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Receiving",
+              "yaxis": 1
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$hostname.$interface.if_packets.rx, 'Receiving')"
+            },
+            {
+              "target": "alias(collectd.$hostname.$interface.if_packets.tx, 'Sending')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network packet",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "leftYAxisLabel": "Errors/s",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": true,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$hostname.$interface.if_errors.rx, 'Receiving')"
+            },
+            {
+              "target": "alias(collectd.$hostname.$interface.if_errors.tx, 'Sending')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network error",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "nav": [
+    {
+      "collapse": false,
+      "enable": true,
+      "notice": false,
+      "now": true,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "type": "timepicker"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "gfs1",
+          "value": "gfs1"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "hostname",
+        "options": [
+          {
+            "text": "ceph-2",
+            "value": "ceph-2"
+          },
+          {
+            "text": "ceph-3",
+            "value": "ceph-3"
+          },
+          {
+            "text": "ceph-4",
+            "value": "ceph-4"
+          },
+          {
+            "text": "ceph_cluster",
+            "value": "ceph_cluster"
+          },
+          {
+            "text": "gfs1",
+            "value": "gfs1"
+          },
+          {
+            "text": "proc_osd-6",
+            "value": "proc_osd-6"
+          }
+        ],
+        "query": "collectd.*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "interface-br0",
+          "value": "interface-br0"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "interface",
+        "options": [
+          {
+            "text": "interface-br0",
+            "value": "interface-br0"
+          },
+          {
+            "text": "interface-enp1s0",
+            "value": "interface-enp1s0"
+          },
+          {
+            "text": "interface-lo",
+            "value": "interface-lo"
+          },
+          {
+            "text": "interface-tap2",
+            "value": "interface-tap2"
+          },
+          {
+            "text": "interface-tap3",
+            "value": "interface-tap3"
+          },
+          {
+            "text": "interface-tap4",
+            "value": "interface-tap4"
+          },
+          {
+            "text": "interface-virbr0",
+            "value": "interface-virbr0"
+          },
+          {
+            "text": "interface-virbr0-nic",
+            "value": "interface-virbr0-nic"
+          },
+          {
+            "text": "interface-vnet0",
+            "value": "interface-vnet0"
+          }
+        ],
+        "query": "collectd.$hostname.interface-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "refresh": "5m",
+  "schemaVersion": 6,
+  "version": 32
+}
