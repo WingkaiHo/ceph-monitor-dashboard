@@ -206,11 +206,9 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
 
 5) Import the grafana dashborad:
 
-   ...
    I.  Click the manu "Dashboard"
    II. Click th button "Choose file" reference PNG (grafana/ChooseDashboardFile.png)
-   III. json in directory "./grafana/json_page/"
-  
+   III. json in directory "./grafana/json_page/" 
    Base dashboard  (data recv by plugin ceph-cluser-perf, and interface plugin of collectd)
    Ceph_Cluster_Home
    Ceph_OSD_Information
@@ -219,14 +217,12 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
    Host_Disk
    Host_Load_CPU_Memory
    Host_Network
-
    Advance dashbord (data recv by plugin ceph-daemon-perf)
    Ceph_OSDs_throttles_IOPS
    Ceph_OSD_Throttle_Information
 
 ##5. Directory
-
-  ...
+  
   1) ceph-cluser-perf: The source code of plugin "ceph-cluser-perf", it use ceph command to get perf of cluster.
   2) ceph-daemon-perf: The source code of plugin "ceph-daemon-perf:", it use "ceph daemon" to get the osd daemon perf.
   3) grafana: This dir used to store how to seting grafana and json dashboard page of grafana.
