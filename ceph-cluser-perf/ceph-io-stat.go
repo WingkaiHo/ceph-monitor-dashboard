@@ -610,6 +610,10 @@ func get_cluster_health(curr_time int64) {
 	var ceph_stat ceph_health_status
 	var stat string
 	var str_health string
+	var creating, active, clean, down, replay int64
+	var scrubbing, degraded, inconsistent, peered, repair int64
+	var recovering, undersized, incomplete int64
+	var num int64
 	
 	f := bufio.NewWriter(os.Stdout)
 	
@@ -659,6 +663,78 @@ func get_cluster_health(curr_time int64) {
 	stat += get_submit_stat_str("ceph_cluster", "summary", "osd", "gauge", "num_in_osds", 
 	     ceph_stat.Osdmap.Osdmap.Num_in_osds, curr_time)
 	
+	for i := range ceph_stat.Pgmap.Pgs_by_state  {
+		stat_name := ceph_stat.Pgmap.Pgs_by_state[i].State_name
+		num = int64(ceph_stat.Pgmap.Pgs_by_state[i].Count)
+		
+		if (strings.Contains(stat_name, "creating")){
+			creating += num
+		}
+		
+		if (strings.Contains(stat_name, "active")) {
+			active += num
+		}
+		
+		if (strings.Contains(stat_name, "clean")) {
+			clean += num
+		}
+		
+		if (strings.Contains(stat_name, "down")) {
+			down += num
+		}
+		
+		if (strings.Contains(stat_name, "replay")) {
+			replay += num
+		}
+		
+		if (strings.Contains(stat_name, "scrubbing")) {
+			scrubbing += num
+		}
+		
+		if (strings.Contains(stat_name, "degraded")) {
+			degraded += num
+		}
+		
+		if (strings.Contains(stat_name, "inconsistent")) {
+			inconsistent += num
+		}
+		
+		if (strings.Contains(stat_name, "peered")) {
+			peered += num
+		}
+		
+		if (strings.Contains(stat_name, "repair")) {
+			repair += num
+		}
+		
+		if (strings.Contains(stat_name, "recovering")) {
+			recovering += num
+		}
+		
+		if (strings.Contains(stat_name, "undersized")) {
+			recovering += num
+		}
+		
+		if  (strings.Contains(stat_name, "incomplete")) {
+			recovering += num
+		}
+	}
+	
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "creating", creating, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "active", active, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "clean", clean, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "down", down, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "replay", replay, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "scrubbing", scrubbing, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "degraded", degraded, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "inconsistent", inconsistent, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "peered", peered, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "recovering", recovering, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "repair", repair, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "undersized", undersized, curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge", "total", int64(ceph_stat.Pgmap.Num_pgs), curr_time)
+	stat += get_submit_stat_str("ceph_cluster", "summary", "pg", "gauge","incomplete", incomplete, curr_time)
+
 	f.Write([]byte(stat))
 	f.Flush()
 
@@ -769,12 +845,13 @@ func get_osd_stat(curr_time int64) {
 	var osd_tree ceph_osd_tree_result
 	var stat string
 	var value int64
+	var num_osd_down int64
 	
 	f := bufio.NewWriter(os.Stdout)
 
 	if ceph_last_time == 0 {
 		return
-	}
+}
 
 	str_stat, err := exec_command("ceph", "osd tree -f json")
 
@@ -799,7 +876,9 @@ func get_osd_stat(curr_time int64) {
 			value, curr_time)
 		}
 	}
-	
+	stat += get_submit_stat_str("ceph_cluster", "summary", "osd", "gauge", "num_down_osd", 
+		num_osd_down, curr_time)
+
 	f.Write([]byte(stat))
 	f.Flush()
 }
