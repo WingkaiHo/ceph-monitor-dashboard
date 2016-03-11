@@ -206,33 +206,27 @@ This document is base for centos7.1, collected-5.5.0, grafana-2.02-1, graphite-w
 
 5) Import the grafana dashborad:
 
-   I.  Click the manu "Dashboard"
-   II. Click th button "Choose file" reference PNG (grafana/ChooseDashboardFile.png)
-   III. json in directory "./grafana/json_page/" 
-   Base dashboard  (data recv by plugin ceph-cluser-perf, and interface plugin of collectd)
-   Ceph_Cluster_Home
-   Ceph_OSD_Information
-   Ceph_Performance
-   Ceph_Pool_Information
-   Host_Disk
-   Host_Load_CPU_Memory
-   Host_Network
-   Advance dashbord (data recv by plugin ceph-daemon-perf)
-   Ceph_OSDs_throttles_IOPS
-   Ceph_OSD_Throttle_Information
+	I.  Click the manu "Dashboard"
+	II. Click th button "Choose file" reference PNG (grafana/ChooseDashboardFile.png)
+	III. json in directory "./grafana/json_page/" 
+	Base dashboard  (data recv by plugin ceph-cluser-perf, and interface plugin of collectd)
+		Ceph_Cluster_Home
+		Ceph_OSD_Information
+		Ceph_Performance
+		Ceph_Pool_Information
+		Host_Disk
+		Host_Load_CPU_Memory
+		Host_Network
+		Advance dashbord (data recv by plugin ceph-daemon-perf)
+		Ceph_OSDs_throttles_IOPS
+		Ceph_OSD_Throttle_Information
 
 ##5. Directory
-  *
-  ceph-cluser-perf: The source code of plugin "ceph-cluser-perf", it use ceph command to get perf of cluster.
-  *
-  ceph-daemon-perf: The source code of plugin "ceph-daemon-perf:", it use "ceph daemon" to get the osd daemon perf.
-  *
-  grafana: This dir used to store how to seting grafana and json dashboard page of grafana.
-  *
-  graphite-web: This dir used to store the configure 
-  *
-  collectd: This dir used to store the example of configure file.
-  *
-  rmp: This used to store rpm packet, it your don't want to download yourself. And collectd-5.5-change.tar.gz have fix collectd
+	1)ceph-cluser-perf: The source code of plugin "ceph-cluser-perf", it use ceph command to get perf of cluster.
+	2)ceph-daemon-perf: The source code of plugin "ceph-daemon-perf:", it use "ceph daemon" to get the osd daemon perf.
+	3)grafana: This dir used to store how to seting grafana and json dashboard page of grafana.
+	4)graphite-web: This dir used to store the configure 
+	5)collectd: This dir used to store the example of configure file.
+	6)rmp: This used to store rpm packet, it your don't want to download yourself. And collectd-5.5-change.tar.gz have fix collectd
           it can run exec plugin in root.
   
