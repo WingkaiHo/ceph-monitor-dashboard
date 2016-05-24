@@ -1,0 +1,800 @@
+{
+  "id": 6,
+  "title": "CloudStack System VM Perf",
+  "originalTitle": "CloudStack System VM Perf",
+  "tags": [
+    "cloudstack"
+  ],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "200px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "id": 1,
+          "leftYAxisLabel": "Used Percent",
+          "legend": {
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "Bytes Used",
+          "seriesOverrides": [
+            {
+              "alias": "total",
+              "lines": false,
+              "yaxis": 2
+            },
+            {
+              "alias": "res",
+              "yaxis": 2
+            }
+          ],
+          "span": 5,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "target": "alias(asPercent(collectd.$vm_name.*.memory-rss, collectd.$vm_name.*.memory-total),'usage')"
+            },
+            {
+              "hide": false,
+              "target": "alias(collectd.$vm_name.*.memory-total, 'total')"
+            },
+            {
+              "hide": false,
+              "target": "alias(collectd.$vm_name.*.memory-rss, 'res')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "bytes"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "leftYAxisLabel": "CPU Freq",
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 5,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$vm_name.*.virt_cpu_total, 'allocated')"
+            },
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.virt_vcpu-*, 3)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "CPU",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.66)",
+            "rgba(237, 129, 40, 0.69)",
+            "rgba(50, 172, 45, 0.74)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "id": 3,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "target": "collectd.$cloudstack_mgr.systemvm-$vm_name.gauge-status"
+            }
+          ],
+          "thresholds": "-1,1,2",
+          "title": "VM Status",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "Running",
+              "value": "3"
+            },
+            {
+              "op": "=",
+              "text": "Starting",
+              "value": "2"
+            },
+            {
+              "op": "=",
+              "text": "Stopping",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "Stopped",
+              "value": "0"
+            },
+            {
+              "op": "=",
+              "text": "Error",
+              "value": "-1"
+            }
+          ],
+          "valueName": "avg"
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "leftYAxisLabel": "Bytes/s",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$vm_name.*.disk_octets-$disk.read, 'read')"
+            },
+            {
+              "target": "alias(collectd.$vm_name.*.disk_octets-$disk.write, 'write')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Disk Speed",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "bytes",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {
+            "read": "#6ED0E0",
+            "write": "#BA43A9"
+          },
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "leftYAxisLabel": "IOPS",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$vm_name.*.disk_ops-$disk.read, 'read')"
+            },
+            {
+              "target": "alias(collectd.$vm_name.*.disk_ops-$disk.write, 'write')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Disk IOPS",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 6,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_octets-$nic.rx, 3,4)"
+            },
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_octets-$nic.tx, 3, 4)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network Octests",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "bytes",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 7,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_packets-$nic.rx, 3, 4)"
+            },
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_packets-$nic.tx, 3, 4)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network Packages",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 8,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_dropped-$nic.*, 3, 4)"
+            },
+            {
+              "target": "aliasByNode(collectd.$vm_name.*.if_errors-$nic.*, 3, 4)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Network Dropped / Errors",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "nav": [
+    {
+      "collapse": false,
+      "enable": true,
+      "notice": false,
+      "now": true,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "type": "timepicker"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "csmgr_csmgr10",
+          "value": "csmgr_csmgr10"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "cloudstack_mgr",
+        "options": [
+          {
+            "text": "csmgr_csmgr10",
+            "value": "csmgr_csmgr10"
+          }
+        ],
+        "query": "collectd.csmgr_*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "r-45-VM",
+          "value": "r-45-VM"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "vm_name",
+        "options": [
+          {
+            "text": "r-10-VM",
+            "value": "r-10-VM"
+          },
+          {
+            "text": "r-14-VM",
+            "value": "r-14-VM"
+          },
+          {
+            "text": "r-15-VM",
+            "value": "r-15-VM"
+          },
+          {
+            "text": "r-157-VM",
+            "value": "r-157-VM"
+          },
+          {
+            "text": "r-158-VM",
+            "value": "r-158-VM"
+          },
+          {
+            "text": "r-16-VM",
+            "value": "r-16-VM"
+          },
+          {
+            "text": "r-17-VM",
+            "value": "r-17-VM"
+          },
+          {
+            "text": "r-45-VM",
+            "value": "r-45-VM"
+          },
+          {
+            "text": "r-46-VM",
+            "value": "r-46-VM"
+          },
+          {
+            "text": "r-75-VM",
+            "value": "r-75-VM"
+          },
+          {
+            "text": "r-76-VM",
+            "value": "r-76-VM"
+          },
+          {
+            "text": "r-86-VM",
+            "value": "r-86-VM"
+          },
+          {
+            "text": "r-87-VM",
+            "value": "r-87-VM"
+          },
+          {
+            "text": "r-9-VM",
+            "value": "r-9-VM"
+          }
+        ],
+        "query": "collectd.$cloudstack_mgr.systemvm-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "/systemvm-([r,v,s]-[0-9]*-VM)/",
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "vda",
+          "value": "vda"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "disk",
+        "options": [
+          {
+            "text": "hdc",
+            "value": "hdc"
+          },
+          {
+            "text": "vda",
+            "value": "vda"
+          }
+        ],
+        "query": "collectd.$vm_name.*.disk_octets-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "/disk_octets-([v,h]d[a-z])/",
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "All",
+          "value": "{vnet15,vnet16,vnet17,vnet5,vnet6,vnet7}"
+        },
+        "datasource": null,
+        "includeAll": true,
+        "name": "nic",
+        "options": [
+          {
+            "text": "All",
+            "value": "{vnet15,vnet16,vnet17,vnet5,vnet6,vnet7}"
+          },
+          {
+            "text": "vnet15",
+            "value": "vnet15"
+          },
+          {
+            "text": "vnet16",
+            "value": "vnet16"
+          },
+          {
+            "text": "vnet17",
+            "value": "vnet17"
+          },
+          {
+            "text": "vnet5",
+            "value": "vnet5"
+          },
+          {
+            "text": "vnet6",
+            "value": "vnet6"
+          },
+          {
+            "text": "vnet7",
+            "value": "vnet7"
+          }
+        ],
+        "query": "collectd.$vm_name.*.if_octets-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "/if_octets-(vnet[0-9]*)/",
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "schemaVersion": 6,
+  "version": 63
+}

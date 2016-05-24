@@ -1,0 +1,596 @@
+{
+  "id": 7,
+  "title": "Ceph Pool Information",
+  "originalTitle": "Ceph Pool Information",
+  "tags": [
+    "ceph"
+  ],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": true,
+  "sharedCrosshair": true,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "150px",
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgba(245, 54, 54, 0.62)",
+            "rgba(97, 237, 40, 0.53)",
+            "rgba(45, 156, 172, 0.69)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "bytes",
+          "height": "",
+          "id": 1,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "target": "collectd.ceph_cluster.$Pool.gauge-avail_bytes"
+            }
+          ],
+          "thresholds": "1186834094,11868340948,1186834094899",
+          "title": "POOL SIZE",
+          "type": "singlestat",
+          "valueFontSize": "70%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "bytes",
+          "id": 2,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "target": "collectd.ceph_cluster.$Pool.gauge-used_bytes"
+            }
+          ],
+          "thresholds": "",
+          "title": "USED",
+          "type": "singlestat",
+          "valueFontSize": "70%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgba(43, 212, 19, 0.8)",
+            "rgba(230, 187, 22, 0.78)",
+            "rgba(212, 22, 54, 0.78)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "percent",
+          "id": 3,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": true
+          },
+          "targets": [
+            {
+              "target": "asPercent(collectd.ceph_cluster.$Pool.gauge-used_bytes, collectd.ceph_cluster.$Pool.gauge-avail_bytes)"
+            }
+          ],
+          "thresholds": "0,70,80",
+          "title": "USAGE",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": true,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.68)",
+            "rgba(50, 172, 45, 0.65)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "id": 6,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "target": "collectd.ceph_cluster.$Pool.gauge-replication"
+            }
+          ],
+          "thresholds": "0, 1, 2",
+          "title": "REPLICATION",
+          "type": "singlestat",
+          "valueFontSize": "100%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "id": 11,
+          "interval": null,
+          "links": [],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "target": "collectd.ceph_cluster.$Pool.gauge-pg_num"
+            }
+          ],
+          "thresholds": "0,1,2",
+          "title": "PG NUM",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "content": "#### POOL SIZE\n* Single CRUSH tree  \n  size = cluster_capacity / replication\n\n* Multi CRUSH tree  \n   size = tree capacity / replication (tree capacity all osd capacity in this tree)",
+          "editable": true,
+          "error": false,
+          "id": 12,
+          "links": [],
+          "mode": "markdown",
+          "span": 2,
+          "style": {},
+          "title": "Description",
+          "type": "text"
+        }
+      ],
+      "title": "Row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "300px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "height": "",
+          "id": 4,
+          "legend": {
+            "avg": true,
+            "current": true,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.ceph_cluster.$Pool.gauge-read_iops, 'read')"
+            },
+            {
+              "target": "alias(collectd.ceph_cluster.$Pool.gauge-write_iops, 'write')"
+            },
+            {
+              "target": "alias(collectd.ceph_cluster.$Pool.gauge-iops, 'sum')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pool IOPS",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "leftYAxisLabel": "Bytes/s",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "hideEmpty": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.ceph_cluster.$Pool.gauge-read_speed, 'read')"
+            },
+            {
+              "target": "alias(collectd.ceph_cluster.$Pool.gauge-write_speed, 'read')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pool Speed",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 10,
+          "leftYAxisLabel": "Bytes/s",
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "aliasByNode(collectd.ceph_cluster.pool-*.gauge-iops, 2)"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Pools IOPS",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "nav": [
+    {
+      "collapse": false,
+      "enable": true,
+      "notice": false,
+      "now": true,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "type": "timepicker"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "pool-rbd",
+          "value": "pool-rbd"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "Pool",
+        "options": [
+          {
+            "text": "pool-_intent-log",
+            "value": "pool-_intent-log"
+          },
+          {
+            "text": "pool-_log",
+            "value": "pool-_log"
+          },
+          {
+            "text": "pool-_rgw",
+            "value": "pool-_rgw"
+          },
+          {
+            "text": "pool-_rgw_buckets",
+            "value": "pool-_rgw_buckets"
+          },
+          {
+            "text": "pool-_rgw_buckets_index",
+            "value": "pool-_rgw_buckets_index"
+          },
+          {
+            "text": "pool-_rgw_control",
+            "value": "pool-_rgw_control"
+          },
+          {
+            "text": "pool-_rgw_gc",
+            "value": "pool-_rgw_gc"
+          },
+          {
+            "text": "pool-_rgw_root",
+            "value": "pool-_rgw_root"
+          },
+          {
+            "text": "pool-_usage",
+            "value": "pool-_usage"
+          },
+          {
+            "text": "pool-_users",
+            "value": "pool-_users"
+          },
+          {
+            "text": "pool-_users_email",
+            "value": "pool-_users_email"
+          },
+          {
+            "text": "pool-_users_swift",
+            "value": "pool-_users_swift"
+          },
+          {
+            "text": "pool-_users_uid",
+            "value": "pool-_users_uid"
+          },
+          {
+            "text": "pool-rbd",
+            "value": "pool-rbd"
+          }
+        ],
+        "query": "collectd.ceph_cluster.pool-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "schemaVersion": 6,
+  "version": 34
+}

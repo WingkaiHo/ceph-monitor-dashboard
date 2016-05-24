@@ -1,0 +1,560 @@
+{
+  "id": 14,
+  "title": "CloudStack Zone VMs Statistic",
+  "originalTitle": "CloudStack Zone VMs Statistic",
+  "tags": [
+    "cloudstack"
+  ],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "decimals": 0,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 22,
+          "legend": {
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-sys_vms_running, 'Running')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-sys_vms_startting, 'Starting')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-sys_vms_stopping, 'Stopping')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_stopped, 'Stopped')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "System VMs",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "decimals": 0,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 23,
+          "legend": {
+            "avg": false,
+            "current": true,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_running, 'Running')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_starting, 'Starting')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_stopping, 'Stopping')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_stopped, 'Stopped')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "User VMs",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 24,
+          "leftYAxisLabel": "MHz/s",
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "rightYAxisLabel": "percent",
+          "seriesOverrides": [
+            {
+              "alias": "alloc cpu usage",
+              "yaxis": 2
+            },
+            {
+              "alias": "total cpu usage",
+              "yaxis": 2
+            }
+          ],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_cpuused, 'cpu used')"
+            },
+            {
+              "hide": false,
+              "target": "alias(asPercent(collectd.$cloudstack_mgr.$zone.gauge-user_vms_cpuused, collectd.$cloudstack_mgr.$zone.gauge-cpu_used), 'alloc cpu usage')"
+            },
+            {
+              "target": "alias(asPercent(collectd.$cloudstack_mgr.$zone.gauge-user_vms_cpuused, collectd.$cloudstack_mgr.$zone.gauge-cpu_total), 'total cpu usage')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMs CPU Usage",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "percent"
+          ]
+        },
+        {
+          "aliasColors": {
+            "recv": "#BA43A9",
+            "send": "#629E51"
+          },
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 25,
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_network_rx, 'recv')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_network_tx, 'send')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMs Network Traffic",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {
+            "read": "#890F02",
+            "write": "#CCA300"
+          },
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 26,
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_disk_read, 'read')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_disk_write, 'write')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMs Disk Traffic",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "Bps",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {
+            "read": "#F9934E",
+            "write": "#7EB26D"
+          },
+          "bars": false,
+          "datasource": null,
+          "decimals": 1,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 27,
+          "legend": {
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "read",
+              "yaxis": 1
+            },
+            {
+              "alias": "write",
+              "yaxis": 1
+            }
+          ],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_disk_ioread, 'read')"
+            },
+            {
+              "target": "alias(collectd.$cloudstack_mgr.$zone.gauge-user_vms_disk_iowrite, 'write')"
+            }
+          ],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "VMs Disk IOPS",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "New row"
+    }
+  ],
+  "nav": [
+    {
+      "collapse": false,
+      "enable": true,
+      "notice": false,
+      "now": true,
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "status": "Stable",
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ],
+      "type": "timepicker"
+    }
+  ],
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "csmgr_csmgr10",
+          "value": "csmgr_csmgr10"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "cloudstack_mgr",
+        "options": [
+          {
+            "text": "csmgr_csmgr10",
+            "value": "csmgr_csmgr10"
+          }
+        ],
+        "query": "collectd.csmgr_*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "type": "query"
+      },
+      {
+        "allFormat": "glob",
+        "current": {
+          "text": "zone-Testing-Zone",
+          "value": "zone-Testing-Zone"
+        },
+        "datasource": null,
+        "includeAll": false,
+        "name": "zone",
+        "options": [
+          {
+            "text": "zone-Testing-Zone",
+            "value": "zone-Testing-Zone"
+          }
+        ],
+        "query": "collectd.$cloudstack_mgr.zone-*",
+        "refresh": true,
+        "refresh_on_load": false,
+        "regex": "",
+        "type": "query"
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "schemaVersion": 6,
+  "version": 33
+}
