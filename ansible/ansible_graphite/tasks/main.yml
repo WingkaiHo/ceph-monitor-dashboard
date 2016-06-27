@@ -19,7 +19,8 @@
   docker:
     name: graphite_web
     hostname: graphite_web
-    image: sitespeedio/graphite 
+    image: sitespeedio/graphite
+    pull: missing 
     expose:
       - 80
       - 2003
