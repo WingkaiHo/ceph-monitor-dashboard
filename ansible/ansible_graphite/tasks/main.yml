@@ -1,0 +1,43 @@
+- name: install packages
+  sudo: yes
+  yum:
+    name: "{{ item.name }}"
+    state: present
+  with_items: install_packages
+  notify: restart docker
+
+- name: start docker at boot
+  sudo: yes
+  action: service name=docker state=started enabled=yes
+
+- name: copy the resource for graphite web container
+  sudo: yes
+  copy: src=resource/graphite dest={{ container_instant_path }} owner=root group=root mode="u=rwx,g=r,o=r"
+
+- name: create grephite_web container instances {{ ansible_hostname }}
+  sudo: yes
+  docker:
+    name: graphite_web
+    hostname: graphite_web
+    image: sitespeedio/graphite 
+    expose:
+      - 80
+      - 2003
+    ports:
+      - "0.0.0.0:{{ graphite_web_port }}:80"
+      - "0.0.0.0:2003:2003"
+    volumes: 
+        - "{{ container_instant_path }}/graphite/etc/nginx/.htpasswd:/etc/nginx/.htpasswd"
+        - "{{ container_instant_path }}/graphite/var/log:/var/log"
+        - "{{ container_instant_path }}/graphite/storage/whisper:/opt/graphite/storage/whisper"
+        - "{{ container_instant_path }}/graphite/opt/graphite/conf/storage-schemas.conf:/opt/graphite/conf/storage-schemas.conf"
+    state: started
+
+- name: copy graphite.service to /usr/lib/systemd/system/
+  sudo: yes
+  copy: src=resource/usr/lib/systemd/system/graphite.service dest=/usr/lib/systemd/system/
+  notify: reload systemd
+
+- name: start graphite_web at boot
+  sudo: yes
+  action: service name=graphite state=started enabled=yes

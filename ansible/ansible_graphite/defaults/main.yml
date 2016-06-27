@@ -1,0 +1,5 @@
+install_packages:
+  - { name: docker.x86_64, enablerepo: base }
+  - { name: docker-python.x86_64, enablerepo: base }
+  - { name: python-docker-py.noarch, enablerepo: base }
+

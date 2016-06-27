@@ -1,0 +1,7 @@
+- hosts: graphite-server
+  remote_user: root
+  vars:
+    container_instant_path: "/root/"
+    graphite_web_port: "8080"
+  roles:
+    - ansible_graphite

@@ -1,0 +1,2 @@
+container_instant_path: "/home/clouder"
+graphite_web_port: "8080"
