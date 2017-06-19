@@ -38,6 +38,7 @@
   "hideControls": false,
   "id": null,
   "links": [],
+  "refresh": "30s",
   "rows": [
     {
       "collapse": false,
@@ -54,13 +55,13 @@
           "fill": 1,
           "id": 1,
           "legend": {
-            "avg": true,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -83,7 +84,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Traffic ($disk)",
+          "title": "读写速度",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -163,7 +164,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "IOPS ($disk)",
+          "title": "IOPS",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -205,7 +206,7 @@
     },
     {
       "collapse": false,
-      "height": 250,
+      "height": 287,
       "panels": [
         {
           "aliasColors": {},
@@ -214,13 +215,13 @@
           "fill": 1,
           "id": 3,
           "legend": {
-            "avg": true,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -243,7 +244,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Time per operations ($disk)",
+          "title": "IO 响应时间",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -332,8 +333,8 @@
     ]
   },
   "time": {
-    "from": "2017-06-12T07:41:12.850Z",
-    "to": "2017-06-12T08:41:12.850Z"
+    "from": "now-1h",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -360,7 +361,7 @@
       "30d"
     ]
   },
-  "timezone": "utc",
+  "timezone": "browser",
   "title": "Host_Disk",
-  "version": 35
+  "version": 18
 }

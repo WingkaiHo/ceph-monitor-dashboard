@@ -54,13 +54,13 @@
           "fill": 1,
           "id": 1,
           "legend": {
-            "avg": true,
+            "avg": false,
             "current": false,
-            "max": true,
-            "min": true,
-            "show": true,
+            "max": false,
+            "min": false,
+            "show": false,
             "total": false,
-            "values": true
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -83,7 +83,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "$interface traffic",
+          "title": "网络流量",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -130,7 +130,7 @@
             "current": false,
             "max": true,
             "min": true,
-            "show": true,
+            "show": false,
             "total": false,
             "values": true
           },
@@ -155,7 +155,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "$interface package",
+          "title": "网路数据包",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -207,13 +207,13 @@
           "fill": 1,
           "id": 3,
           "legend": {
-            "avg": true,
+            "avg": false,
             "current": false,
             "max": false,
-            "min": true,
-            "show": true,
-            "total": true,
-            "values": true
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
           },
           "lines": true,
           "linewidth": 1,
@@ -240,23 +240,24 @@
             {
               "hide": false,
               "refId": "C",
-              "target": "alias(collectd.$host.$interface.if_errors.rx, 'dropped_rx')"
+              "target": "alias(collectd.$host.$interface.if_errors.rx, 'error_rx')"
             },
             {
               "hide": false,
               "refId": "D",
-              "target": "alias(collectd.$host.$interface.if_errors.tx, 'dropped_tx')"
+              "target": "alias(collectd.$host.$interface.if_errors.tx, 'error_tx')"
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "$interface drop / error",
+          "title": "网络丢包/错误",
           "tooltip": {
             "shared": true,
             "sort": 0,
             "value_type": "individual"
           },
+          "transparent": false,
           "type": "graph",
           "xaxis": {
             "mode": "time",
@@ -370,5 +371,5 @@
   },
   "timezone": "browser",
   "title": "Host_Network",
-  "version": 20
+  "version": 10
 }

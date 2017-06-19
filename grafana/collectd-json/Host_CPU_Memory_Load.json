@@ -55,7 +55,7 @@
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -73,14 +73,28 @@
           "steppedLine": false,
           "targets": [
             {
+              "hide": false,
               "refId": "A",
-              "target": "aliasByMetric(asPercent(collectd.$host.load.load.*, 1))"
+              "target": "alias(collectd.$host.load.load.shortterm, '5min')",
+              "textEditor": true
+            },
+            {
+              "hide": false,
+              "refId": "B",
+              "target": "alias(collectd.$host.load.load.midterm, '10min')",
+              "textEditor": true
+            },
+            {
+              "hide": false,
+              "refId": "C",
+              "target": "alias(collectd.$host.load.load.longterm, '15min')",
+              "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Load",
+          "title": "系统负载",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -124,7 +138,7 @@
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -142,18 +156,15 @@
           "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
-              "target": "alias(collectd.$host.$cpu.percent-user, '$cpu-user')"
-            },
-            {
-              "refId": "B",
-              "target": "alias(collectd.$host.$cpu.percent-system, '$cpu-system')"
+              "refId": "C",
+              "target": "alias(averageSeries(sumSeriesWithWildcards(collectd.$host.cpu-*.{percent-user,percent-system}, 3)), 'cpu')",
+              "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "CPU",
+          "title": "CPU 使用率",
           "tooltip": {
             "shared": true,
             "sort": 0,
@@ -168,7 +179,7 @@
           },
           "yaxes": [
             {
-              "format": "percentunit",
+              "format": "percent",
               "label": "",
               "logBase": 1,
               "max": null,
@@ -204,6 +215,7 @@
           },
           "bars": false,
           "datasource": "${DS_DCOS}",
+          "decimals": 2,
           "fill": 1,
           "id": 3,
           "legend": {
@@ -211,7 +223,7 @@
             "current": false,
             "max": false,
             "min": false,
-            "show": true,
+            "show": false,
             "total": false,
             "values": false
           },
@@ -223,31 +235,31 @@
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
-          "seriesOverrides": [],
+          "seriesOverrides": [
+            {
+              "alias": ""
+            }
+          ],
           "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "hide": false,
-              "refId": "A",
-              "target": "alias(collectd.$host.memory.memory-used, 'Used')"
-            },
-            {
-              "hide": false,
-              "refId": "B",
-              "target": "alias(collectd.$host.memory.memory-cached, 'Page cache')"
+              "refId": "C",
+              "target": "alias(asPercent(collectd.$host.memory.memory-used, sumSeries(collectd.$host.memory.{memory-used,memory-free})), 'memory')",
+              "textEditor": true
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Memory",
+          "title": "内存使用率",
           "tooltip": {
             "shared": true,
             "sort": 0,
             "value_type": "individual"
           },
+          "transparent": false,
           "type": "graph",
           "xaxis": {
             "mode": "time",
@@ -257,7 +269,7 @@
           },
           "yaxes": [
             {
-              "format": "bytes",
+              "format": "percent",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -307,26 +319,6 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
-      },
-      {
-        "allValue": null,
-        "current": {},
-        "datasource": "${DS_DCOS}",
-        "hide": 0,
-        "includeAll": true,
-        "label": "CPU",
-        "multi": false,
-        "name": "cpu",
-        "options": [],
-        "query": "collectd.$host.cpu-*",
-        "refresh": 1,
-        "regex": "",
-        "sort": 0,
-        "tagValuesQuery": "",
-        "tags": [],
-        "tagsQuery": "",
-        "type": "query",
-        "useTags": false
       }
     ]
   },
@@ -361,5 +353,5 @@
   },
   "timezone": "browser",
   "title": "Host_CPU_Memory_Load",
-  "version": 29
+  "version": 39
 }
